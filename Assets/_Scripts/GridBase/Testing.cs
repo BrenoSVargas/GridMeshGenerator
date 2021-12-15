@@ -18,17 +18,17 @@ public class Testing : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = MouseScreenPosition();
+            Vector3 mousePos = MouseScreenPositionWithoutZ();
             grid.SetValue(mousePos, 56);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log(grid.GetValue(MouseScreenPosition()));
+            Debug.Log(grid.GetValue(MouseScreenPositionWithoutZ()));
         }
     }
 
-    private Vector3 MouseScreenPosition()
+    private Vector3 MouseScreenPositionWithoutZ()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
